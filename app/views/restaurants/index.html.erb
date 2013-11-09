@@ -1,0 +1,24 @@
+<div class="hero-unit">
+	<h1>Rails Review</h1>
+	<p>Best Restaurant Reviews in Chicago!</p>
+	<p><%= link_to "Add a Restaurant", new_restaurant_url, :class => "brn btn-primary btn-large" %></p>
+</div>
+
+<table class="table table-striped">
+	<thead>
+		<th>Name</th>
+		<th>Phone Number</td>
+		<th>Actions</td>
+	</thead>
+	<tbody>
+		<% @restaurants.each do |single_restaurant| %>
+			<tr>
+				<td> <%= link_to single_restaurant.name, restaurant_path(single_restaurant) %></td>
+				<td> <%= single_restaurant.phone %> </td>
+				<td> <%= link_to "Edit", edit_restaurant_path(single_restaurant) %> | 
+			<%= link_to "Destroy", single_restaurant, method: :delete, data: { confirm: "Are you sure?" }  %>
+				</td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>

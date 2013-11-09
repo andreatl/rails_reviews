@@ -1,0 +1,22 @@
+<h2><%= @restaurant.name %></h2>
+<p><%= @restaurant.phone%></p>
+<p>Average Rating: <%= @restaurant.average_stars %></p>
+
+<h2>Add Review</h2>
+<p>Post your review about <%= @restaurant.name %>:</p>
+
+<%= form_for [@restaurant, @restaurant.reviews.new] do |form| %>
+	<%= form.label :description %>
+	<%= form.text_field :description %>
+	<%= form.label :stars %>
+	<%= form.text_field :stars %><br>
+	<%= form.submit %>
+<% end %>
+
+<!--
+<% @restaurant.reviews.each do |single_review| %>
+	<hr />
+	This user gave: <%= single_review.stars %> Stars<br />
+	This user said: <%= single_review.description %>
+<% end %>
+-->
